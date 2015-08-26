@@ -1,0 +1,36 @@
+{
+  "name": "ta-lib",
+  "version": "0.9.0",
+  "description": "A technical analysis library written entirely in JavaScript/TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec test/*_test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/csupnig/ta-lib"
+  },
+  "keywords": [
+    "talib",
+    "ta-lib",
+    "analysis",
+    "technical",
+    "trading"
+  ],
+  "author": "Christopher Supnig <christopher@supnig.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csupnig/ta-lib/issues"
+  },
+  "homepage": "https://github.com/csupnig/ta-lib",
+  "devDependencies": {
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2",
+    "gulp": "~3.6.1",
+    "gulp-tslint": "~1.1.0",
+    "gulp-tslint-stylish": "~1.0.1",
+    "gulp-typescript": "~2.8.0",
+    "gulp-mocha":"2.1.3",
+    "path": "~0.4.9"
+  }
+}
