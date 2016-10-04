@@ -20,7 +20,11 @@ export interface IBBANDSResult {
 	lowband : Array<number>;
 	middleband : Array<number>;
 }
-
+export interface IPPOResult {
+  ppo:  Array<number>;
+  signal: Array<number>;
+  histogram: Array<number>;
+}
 
 export function arrayMax (array : Array<number>) : number {
 	return Math.max.apply(Math, array.filter(function (n) {
@@ -228,6 +232,25 @@ export function MACD (array : Array<number>, i12 : number, i26 : number, i9 : nu
 	}
 	return {
 		macd: macd,
+		signal: signal,
+		histogram: histogram
+	};
+}
+
+export function PERCPRICEOSC(array: Array<number>, i12 : number, i26 : number, i9 : number): IPPOResult{
+	var ema12 = EMA(array,12),
+		ema26 = EMA(array,26),
+		ppo = [],i,signal,histogram;
+		for(i=0; i < ema12.length; i++){
+			ppo.push((ema12[i]-ema26[i])/ema26[i] * 100);
+		}
+		signal = EMA(ppo,9);
+		histogram=[];
+		for(i=0; i < ppo.length; i++){
+			histogram.push(ppo[i] - signal[i]);
+		}
+	return {
+		ppo: ppo,
 		signal: signal,
 		histogram: histogram
 	};
