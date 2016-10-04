@@ -10,7 +10,7 @@ describe('MathUtil', function(){
        })
     });
     describe('RSI', function(){
-       it('should youeld expected results', function(){
+       it('should yield expected results', function(){
           var instruments = [44.34,
                   44.09,
                   44.15,
@@ -45,9 +45,9 @@ describe('MathUtil', function(){
                   42.66,
                   43.13].reverse(),
               rsi = MathUtil.RSI(instruments, 14);
-           assert.equal(Math.round(rsi[0]*100)/100, 37.77);
-           assert.equal(Math.round(rsi[1]*100)/100, 33.08);
-           assert.equal(Math.round(rsi[2]*100)/100, 37.30);
+           assert.equal(Math.round(rsi[0]*100)/100, 37.71);
+           assert.equal(Math.round(rsi[1]*100)/100, 32.87);
+           assert.equal(Math.round(rsi[2]*100)/100, 37.21);
        });
     });
 
@@ -135,9 +135,9 @@ describe('MathUtil', function(){
               67.59
               ].reverse(),
               stochrsi = MathUtil.STOCHRSI(instruments,14);
-           assert.equal(71.51115405773173, stochrsi[0]);
-           assert.equal(71.51115405773176, stochrsi[1]);
-           assert.equal(46.65265157825128, stochrsi[2]);
+           assert.equal(71.1924916245241, stochrsi[0]);
+           assert.equal(73.4735209177603, stochrsi[1]);
+           assert.equal(40.46074791866111, stochrsi[2]);
        });
     });
 
@@ -189,7 +189,7 @@ describe('MathUtil', function(){
            assert.equal(Math.round(sma[0] * 100) / 100,91.05);
        });
     });
-    
+
     describe('BBANDS', function(){
        it('should yield expected results', function(){
           var instruments = [86.16,
