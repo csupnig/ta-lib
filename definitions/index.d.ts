@@ -37,3 +37,5 @@ export declare function SMA(originalArray: Array<number>, smaLength: number): Ar
 export declare function EMA(originalArray: Array<number>, emaLength: number): Array<number>;
 export declare function MACD(array: Array<number>, i12: number, i26: number, i9: number): IMACDResult;
 export declare function PERCPRICEOSC(array: Array<number>, i12: number, i26: number, i9: number): IPPOResult;
+export declare function WILLR(highs: Array<number>, lows: Array<number>, closes: Array<number>, lookback: number): Array<number>;
+export declare function TRUERANGE(highs: Array<number>, lows: Array<number>, closes: Array<number>): Array<number>;

@@ -290,4 +290,106 @@ describe('MathUtil', function(){
             assert.equal(Math.round(ppriceosc.histogram[0] * 100)/100 ,-0.19);
         });
       });
+      describe('WILLR', function(){
+         it('should yield expected results', function(){
+            var highs = [
+                127.01,
+                127.62,
+                126.59,
+                127.35,
+                128.17,
+                128.43,
+                127.37,
+                126.42,
+                126.90,
+                126.85,
+                125.65,
+                125.72,
+                127.16,
+                127.72,
+                127.69,
+                128.22].reverse(),
+                lows = [
+                125.36,
+                126.16,
+                124.93,
+                126.09,
+                126.82,
+                126.48,
+                126.03,
+                124.83,
+                126.39,
+                125.72,
+                124.56,
+                124.57,
+                125.07,
+                126.86,
+                126.63,
+                126.80].reverse(),
+                close = [
+                127.29,
+                127.18,
+                128.01].reverse(),
+                willr = MathUtil.WILLR(highs,lows,close,14);
+             assert.equal(willr.length, 3);
+             assert.equal(Math.round(willr[0]*100)/100, -10.85);
+             assert.equal(Math.round(willr[1]*100)/100, -32.3);
+             assert.equal(Math.round(willr[2]*100)/100, -29.46);
+
+         });
+       });
+       describe('TRUERANGE', function(){
+          it('should yield expected results', function(){
+             var highs = [
+                  48.70,
+                  48.72,
+                  48.90,
+                  48.87,
+                  48.82,
+                  49.05,
+                  49.20,
+                  49.35,
+                  49.92,
+                  50.19,
+                  50.12,
+                  49.66,
+                  49.88,
+                  50.19].reverse(),
+                 lows = [
+                  47.79,
+                  48.14,
+                  48.39,
+                  48.37,
+                  48.24,
+                  48.64,
+                  48.94,
+                  48.86,
+                  49.50,
+                  49.87,
+                  49.20,
+                  48.90,
+                  49.43,
+                  49.73].reverse(),
+                 close = [
+                  48.16,
+                  48.61,
+                  48.75,
+                  48.63,
+                  48.74,
+                  49.03,
+                  49.07,
+                  49.32,
+                  49.91,
+                  50.13,
+                  49.53,
+                  49.50,
+                  49.75,
+                  50.03].reverse(),
+                truerange = MathUtil.TRUERANGE(highs,lows,close);
+              assert.equal(Math.round(truerange[0]*100)/100, 0.46);
+              assert.equal(Math.round(truerange[1]*100)/100, 0.45);
+              assert.equal(Math.round(truerange[2]*100)/100, 0.76);
+
+          });
+        });
 });

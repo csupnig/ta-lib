@@ -200,3 +200,39 @@ function PERCPRICEOSC(array, i12, i26, i9) {
     };
 }
 exports.PERCPRICEOSC = PERCPRICEOSC;
+function WILLR(highs, lows, closes, lookback) {
+    var willr = [], highest_high, lowest_low, curr_close, i;
+    // computing only if highs and lows arrays are of equal length
+    if (highs.length == lows.length && highs.length >= lookback) {
+        /*
+         * Willams %R exists only for the values which have atleast "lookback" values
+         * so we iterate till ((length )-lookback)to calculate Willams %R
+         */
+        var limit = highs.length - lookback;
+        for (i = limit; i >= 0; i--) {
+            highest_high = arrayMax(highs.slice(i, i + lookback));
+            lowest_low = arrayMin(lows.slice(i, i + lookback));
+            curr_close = closes[i];
+            willr[i] = (highest_high - curr_close) / (highest_high - lowest_low) * -100;
+        }
+    }
+    return willr;
+}
+exports.WILLR = WILLR;
+function TRUERANGE(highs, lows, closes) {
+    var tr = [], curr_diff, curr_high_diff, curr_low_diff, i;
+    if (highs.length != lows.length || highs.length != closes.length) {
+        //True ranges are found only when all arrays are of equal length
+        return tr;
+    }
+    tr[0] = highs[0] - lows[0];
+    for (i = highs.length - 1; i > 0; i--) {
+        var tmp = [];
+        tmp.push(highs[i] - lows[i]);
+        tmp.push(Math.abs(lows[i] - closes[i + 1]));
+        tmp.push(Math.abs(highs[i] - closes[i + 1]));
+        tr[i] = arrayMax(tmp);
+    }
+    return tr;
+}
+exports.TRUERANGE = TRUERANGE;
