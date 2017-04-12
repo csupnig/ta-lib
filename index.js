@@ -31,17 +31,19 @@ function average(a) {
     return r.deviation = Math.sqrt(r.variance = s / t), r;
 }
 exports.average = average;
-function BBANDS(array, period) {
+function BBANDS(array, period, deviation) {
     var bbands = {
         middleband: [],
         lowband: [],
         highband: []
     }, sma = SMA(array, period), avg, i, arr;
+    if (isNaN(deviation))
+        deviation = 2;
     for (i = period - 1; i >= 0; i--) {
         arr = array.slice(i, i + period);
         avg = average(arr);
-        bbands.highband[i] = sma[i] + (2 * avg.deviation);
-        bbands.lowband[i] = sma[i] - (2 * avg.deviation);
+        bbands.highband[i] = sma[i] + (deviation * avg.deviation);
+        bbands.lowband[i] = sma[i] - (deviation * avg.deviation);
         bbands.middleband[i] = sma[i];
     }
     return bbands;

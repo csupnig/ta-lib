@@ -59,7 +59,7 @@ export function average(a : Array<number>) : IAverage {
 	return r.deviation = Math.sqrt(r.variance = s / t), r;
 }
 
-export function BBANDS (array : Array<number>, period : number) : IBBANDSResult{
+export function BBANDS (array : Array<number>, period : number, deviation : number ) : IBBANDSResult{
 	var bbands = {
 			middleband:[],
 			lowband:[],
@@ -67,11 +67,12 @@ export function BBANDS (array : Array<number>, period : number) : IBBANDSResult{
 		},
 		sma = SMA(array, period),
 		avg ,i,arr;
+	if (isNaN(deviation)) deviation = 2;
 	for (i = period-1;i>=0;i--) {
 		arr = array.slice(i, i + period);
 		avg = average(arr);
-		bbands.highband[i] = sma[i] + (2 * avg.deviation);
-		bbands.lowband[i] = sma[i] - (2 * avg.deviation);
+		bbands.highband[i] = sma[i] + (deviation * avg.deviation);
+		bbands.lowband[i] = sma[i] - (deviation * avg.deviation);
 		bbands.middleband[i] = sma[i];
 	}
 	return bbands;
