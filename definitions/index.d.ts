@@ -28,7 +28,7 @@ export declare function upscale(number: number, places: number): number;
 export declare function downscale(number: number, places: number): number;
 export declare function diff(x: number, y: number): number;
 export declare function average(a: Array<number>): IAverage;
-export declare function BBANDS(array: Array<number>, period: number): IBBANDSResult;
+export declare function BBANDS(array: Array<number>, period: number, deviation: number): IBBANDSResult;
 export declare function AROON(higharray: Array<number>, lowarray: Array<number>, period: number): IAroonResult;
 export declare function MFI(higharray: Array<number>, lowarray: Array<number>, closearray: Array<number>, volumearray: Array<number>, period: number): number;
 export declare function RSI(array: Array<number>, rsiperiod: number): Array<number>;
