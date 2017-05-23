@@ -4,6 +4,8 @@
 
 This library is used on cointelligence.net for calculating indicators and provides a base for trade strategies.
 
+Read more on my website [https://www.supnig.com/blog/ta-lib](https://www.supnig.com/blog/ta-lib)
+
 ## Installation
 
 Install `ta-lib` as a dependency:

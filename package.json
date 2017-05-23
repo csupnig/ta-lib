@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/csupnig/ta-lib/issues"
   },
-  "homepage": "https://github.com/csupnig/ta-lib",
+  "homepage": "https://www.supnig.com/blog/ta-lib",
   "devDependencies": {
     "chai": "~1.9.1",
     "mocha": "~1.18.2",
