@@ -12,7 +12,7 @@ gulp.task('scripts', function() {
     var tsResult = gulp.src('src/*.ts')
         .pipe(ts(tsProject));
 
-    tsResult.dts.pipe(gulp.dest('definitions'));
+    tsResult.dts.pipe(gulp.dest('.'));
 
     return tsResult.js.pipe(gulp.dest('.'));
 });
