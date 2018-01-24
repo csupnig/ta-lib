@@ -11,7 +11,8 @@ Read more on my website [https://www.supnig.com/blog/ta-lib](https://www.supnig.
 Install `ta-lib` as a dependency:
 
 ```shell
-npm install ta-lib
+npm install ta-lib -S
+// yarn add ta-lib
 ```
 
 ## Usage
@@ -19,11 +20,16 @@ npm install ta-lib
 ### In your `module`:
 
 ```javascript
-var talib = require('ta-lib'),
-    sma = talib.SMA([23, 34, 12,..., 34, 23], 12);
+const talib = require('ta-lib');
+const sma = talib.SMA([23, 34, 12,..., 34, 23], 12);
 ```
 
 Where the passed array of prices has the most recent at its 0-index and a minimum of 12 entries.
+
+## Functions
+
+You can see all functions [here (http://ta-lib.org/function.html).](http://ta-lib.org/function.html)
+
 
 ## License
 
